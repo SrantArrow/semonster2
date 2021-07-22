@@ -5,10 +5,9 @@ public class Monster {
   String name;
   int rare;// 1:normal,2:uncommon,3:rare,4:ultra rare
 
-  Monster() {
-    Random random = new Random();
-    this.name = this.summonMonster(random.nextInt(5));
-    this.rare = random.nextInt(5);
+  Monster(int monstNum, int rareNum) {
+    this.name = this.summonMonster(monstNum);
+    this.rare = rareNum;
   }
 
   String summonMonster(int mnumber) {
@@ -19,6 +18,6 @@ public class Monster {
   @Override
   public String toString() {
 
-    return this.name + ":レア度[" + this.rare + "]";
+    return this.name + ":レア度[" + this.rare + "]\n";
   }
 }
