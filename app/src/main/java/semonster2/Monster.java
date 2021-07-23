@@ -1,5 +1,4 @@
 package semonster2;
-import java.util.Random;
 
 public class Monster {
   String name;
@@ -9,8 +8,7 @@ public class Monster {
     this.name = this.summonMonster(monstNum);
     if (this.name == "Blue Eyes OIT Dragon") {
       this.rare = 5;
-    }
-    else {
+    } else {
       this.rare = rareNum;
     }
   }
