@@ -3,6 +3,7 @@
  */
 package semonster2;
 import java.util.Random;
+import java.util.ArrayList;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -10,11 +11,8 @@ import static org.junit.Assert.*;
 public class MonsterTest {
   @Test
   public void testsummonMonster() {
-    Monster classUnderTest = new Monster();
-    String monsters[] = { "マグマそうへい", "ヒサミツドラゴン", "スラリン", "デュラハン", "シーサーペント" };
-    for(int i=0; i<5; i++){
-      assertNotNull(monsters[i], classUnderTest.summonMonster(i));
-    }
+    Monster testMonster = new Monster(0, 0);
+    assertEquals("マグマそうへい:レア度[0]\n", testMonster.toString());
   }
 
 }
