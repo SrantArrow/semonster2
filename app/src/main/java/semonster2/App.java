@@ -3,13 +3,34 @@
  */
 package semonster2;
 
+import java.util.LinkedList;
+import java.util.Random;
+
 public class App {
+  final static Random random = new Random();
+  final static int maxRandomMonsterNum = 5;
+  final static int maxRandomRareNum = 5;
+
   public String getGreeting() {
     return "こんにちは SEMonster";
   }
 
   public static void main(String[] args) {
+    Player Hisamitsu = new Player("Hisamitsu", createRandomList(10, maxRandomMonsterNum),
+        createRandomList(10, maxRandomRareNum));
+    Hisamitsu.drawMonsters();
+    
     System.out.println(new App().getGreeting());
     System.out.println(new Monster(5, 0).toString());
+    System.out.println(Hisamitsu.toString());
+  }
+
+  public static LinkedList<Integer> createRandomList(int count, int MaxRandomNum) {
+    LinkedList<Integer> randNumList = new LinkedList<>();
+    for (int i = 0; i < count; i++) {
+      randNumList.add(random.nextInt(MaxRandomNum + 1));
+    }
+
+    return randNumList;
   }
 }

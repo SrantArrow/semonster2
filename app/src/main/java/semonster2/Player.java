@@ -4,20 +4,22 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class Player {
-  private String name;
-  private ArrayList<Monster> deck = new ArrayList<>();
-  private LinkedList<Integer> randomNum;
-  private static final int DeckSize = 5;
+  public String name;
+  public ArrayList<Monster> deck = new ArrayList<>();
+  private LinkedList<Integer> MonsRandNum; // モンスター用LinkedList
+  private LinkedList<Integer> RareRandNum; // レア度用LinkedList
+  private static final int DeckSize = 5; // デッキ枚数
 
-  Player(String playername, LinkedList<Integer> randomNum) {
+  Player(String playername, LinkedList<Integer> mRandNum, LinkedList<Integer> rRandNum) {
     this.name = playername;
-    this.randomNum = randomNum;
+    this.MonsRandNum = mRandNum;
+    this.RareRandNum = rRandNum;
   }
 
   // ５枚ランダムにドロー
   public void drawMonsters() {
     for (int i = 0; i < DeckSize; i++) {
-      this.deck.add(new Monster(this.randomNum.removeFirst(), this.randomNum.removeFirst()));
+      this.deck.add(i, new Monster(this.MonsRandNum.pop(), this.RareRandNum.pop()));
     }
   }
 
