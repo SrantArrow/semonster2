@@ -30,9 +30,9 @@ public class Monster {
     evo_table.put("ヒサミツドラゴン", "グレイトヒサミツドラゴン");
     evo_table.put("スラリン", "プラチナスラリン");
     evo_table.put("デュラハン", "サー・バルドゥル");
-    evo_table.put("シーサーペント", "ハリケーンドラゴン")
-    evo_table.put("Blue Eyes OIT Dragon", "Blue Eyes OIT Dragon" )
-    return evo_table.get(monster)
+    evo_table.put("シーサーペント", "ハリケーンドラゴン");
+    evo_table.put("Blue Eyes OIT Dragon", "Blue Eyes OIT Dragon" );
+    return evo_table.get(monster);
   }
 
   @Override
