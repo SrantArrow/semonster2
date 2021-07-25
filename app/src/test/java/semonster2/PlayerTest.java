@@ -31,7 +31,7 @@ public class PlayerTest {
     }
 
     for (int i = 0; i < DeckSize; i++) {
-      assertEquals(testdeck.get(i), testPlayer.deck.get(i));
+      assertEquals(testdeck.get(i).toString(), testPlayer.deck.get(i).toString());
     }
 
   }
