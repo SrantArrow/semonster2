@@ -17,12 +17,19 @@ public class App {
 
   public static void main(String[] args) {
     Player Hisamitsu = new Player("Hisamitsu", createRandomList(10, maxRandomMonsterNum),
-        createRandomList(10, maxRandomRareNum));
+        createRandomList(10, maxRandomMonsterNum));
     Hisamitsu.drawMonsters();
-    
+
+    Player Matsumoto = new Player("Matsumoto", createRandomList(10, maxRandomMonsterNum),
+        createRandomList(10, maxRandomMonsterNum));
+    Matsumoto.drawMonsters();
+
     System.out.println(new App().getGreeting());
     System.out.println(new Monster(5, 0).toString());
     System.out.println(Hisamitsu.toString());
+
+    Battle battle = new Battle(Hisamitsu, Matsumoto);
+    battle.battlefield();
   }
 
   public static LinkedList<Integer> createRandomList(int count, int MaxRandomNum) {
