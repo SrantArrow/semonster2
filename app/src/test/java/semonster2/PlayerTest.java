@@ -18,14 +18,16 @@ public class PlayerTest {
     ArrayList<Monster> testdeck = new ArrayList<>(); // テスト用デッキ
     // LinkListへの数値の代入は適宜変更すること
 
-    LinkedList<Integer> testNumList1 = createRandomList(10, maxRandomMonsterNum);
-    LinkedList<Integer> testNumList2 = createRandomList(10, maxRandomRareNum);
+    LinkedList<Integer> testNumListMons = createRandomList(5, maxRandomMonsterNum);
+    LinkedList<Integer> testNumListRare = createRandomList(5, maxRandomRareNum);
+    LinkedList<Integer> testNumList1 = (LinkedList<Integer>) testNumListMons.clone();
+    LinkedList<Integer> testNumList2 = (LinkedList<Integer>) testNumListRare.clone();
 
-    Player testPlayer = new Player("tester", testNumList1, testNumList2);
+    Player testPlayer = new Player("tester", testNumListMons, testNumListRare);
     testPlayer.drawMonsters();
 
     for (int i = 0; i < DeckSize; i++) {
-      testdeck.add(i, new Monster(testNumList1.get(i), testNumList2.get(i)));
+      testdeck.add(i, new Monster(testNumList1.pop(), testNumList2.pop()));
     }
 
     for (int i = 0; i < DeckSize; i++) {
@@ -37,7 +39,7 @@ public class PlayerTest {
   public static LinkedList<Integer> createRandomList(int count, int MaxRandomNum) {
     LinkedList<Integer> randNumList = new LinkedList<>();
     for (int i = 0; i < count; i++) {
-      randNumList.add(random .nextInt(MaxRandomNum + 1));
+      randNumList.add(random.nextInt(MaxRandomNum + 1));
     }
 
     return randNumList;
