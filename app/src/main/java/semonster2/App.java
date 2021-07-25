@@ -4,40 +4,25 @@
 package semonster2;
 
 import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.Random;
 
 public class App {
   final static Random random = new Random();
   final static int maxRandomMonsterNum = 5;
   final static int maxRandomRareNum = 5;
+  final static String[] duelPlayer = {"Hisamitsu", "Matsumoto"};
 
   public String getGreeting() {
     return "こんにちは SEMonster";
   }
 
   public static void main(String[] args) {
-    Player Hisamitsu = new Player("Hisamitsu", createRandomList(10, maxRandomMonsterNum),
-        createRandomList(10, maxRandomMonsterNum));
-    Hisamitsu.drawMonsters();
-
-    Player Matsumoto = new Player("Matsumoto", createRandomList(10, maxRandomMonsterNum),
-        createRandomList(10, maxRandomMonsterNum));
-    Matsumoto.drawMonsters();
-
     System.out.println(new App().getGreeting());
-    System.out.println(new Monster(5, 0).toString());
-    System.out.println(Hisamitsu.toString());
 
-    Battle battle = new Battle(Hisamitsu, Matsumoto);
-    battle.battlefield();
+    GamePlay duel = new GamePlay(maxRandomMonsterNum, maxRandomRareNum);
+
+    duel.battleStart(duelPlayer[0], duelPlayer[1]);
   }
 
-  public static LinkedList<Integer> createRandomList(int count, int MaxRandomNum) {
-    LinkedList<Integer> randNumList = new LinkedList<>();
-    for (int i = 0; i < count; i++) {
-      randNumList.add(random.nextInt(MaxRandomNum + 1));
-    }
-
-    return randNumList;
-  }
 }

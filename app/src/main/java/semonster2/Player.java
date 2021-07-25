@@ -19,7 +19,7 @@ public class Player {
   // ５枚ランダムにドロー
   public void drawMonsters() {
     for (int i = 0; i < DeckSize; i++) {
-      this.deck.add(i, new Monster(this.MonsRandNum.pop(), this.RareRandNum.pop()));
+      this.deck.add( new Monster(this.MonsRandNum.pop(), this.RareRandNum.pop()));
     }
   }
 
